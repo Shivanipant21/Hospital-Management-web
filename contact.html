@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – MAX Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🏥</span>
+        MAX<span>Hospital</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="appointment.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>📞 Contact Us</h1>
+    <p>We're here to help. Reach out to us anytime — we respond within 24 hours.</p>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Whether you have a question about our services, need help booking an appointment, or want to provide feedback — our team is ready to assist you.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>MAX Hospital, Sector 14, Rohini,<br>New Delhi – 110085, India</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91-11-2345-6789 (General)<br>+91-11-2345-9999 (Emergency 24/7)</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@maxhospital.in<br>appointments@maxhospital.in</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>OPD: Mon–Sat, 8 AM – 8 PM<br>Emergency: 24 hours, 7 days a week</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🚑</div>
+            <div>
+              <h4>Ambulance</h4>
+              <p>Call 102 or +91-11-2345-0000<br>Available round the clock</p>
+            </div>
+          </div>
+
+          <!-- QUICK LINKS -->
+          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="appointment.html" class="btn btn-solid" style="font-size:0.9rem; padding:12px 22px;">📅 Book Appointment</a>
+            <a href="admin.html" class="btn" style="font-size:0.9rem; padding:12px 22px; background:var(--light-bg); color:var(--primary); border:1.5px solid var(--border);">🔐 Admin Login</a>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm" onsubmit="sendMessage(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cname">Your Name *</label>
+                <input type="text" id="cname" placeholder="Full name" required />
+              </div>
+              <div class="form-group">
+                <label for="cphone">Phone Number</label>
+                <input type="tel" id="cphone" placeholder="e.g. 9876543210" />
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px;">
+              <label for="cemail">Email Address *</label>
+              <input type="email" id="cemail" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group" style="margin-bottom:20px;">
+              <label for="csubject">Subject *</label>
+              <select id="csubject" required>
+                <option value="">Select a subject</option>
+                <option>Appointment Inquiry</option>
+                <option>Doctor Information</option>
+                <option>Billing & Payments</option>
+                <option>Emergency Services</option>
+                <option>Feedback / Complaint</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:24px;">
+              <label for="cmessage">Message *</label>
+              <textarea id="cmessage" placeholder="Write your message here..." required style="min-height:120px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-solid" style="width:100%; justify-content:center; padding:14px;">
+              📨 Send Message
+            </button>
+            <div class="success-msg" id="contactSuccess">
+              ✅ Message sent successfully! We'll get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP PLACEHOLDER -->
+  <section style="padding: 0 24px 60px; background: var(--light-bg);">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, var(--primary-light), #b8e4f0);
+                  border-radius: 16px; height: 280px; display:flex; align-items:center;
+                  justify-content:center; flex-direction:column; gap:12px; text-align:center;">
+        <div style="font-size:3.5rem;">🗺️</div>
+        <h3 style="color:var(--primary); font-size:1.2rem;">MAX Hospital, Rohini, New Delhi</h3>
+        <p style="color:var(--text-muted); font-size:0.9rem;">Sector 14, Rohini – Near Metro Station</p>
+        <a href="https://maps.google.com" target="_blank" class="btn btn-solid" style="font-size:0.88rem; padding:10px 22px;">
+          📍 Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions about our services.</p>
+      </div>
+      <div style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" style="border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden;">
+          <button onclick="toggleFaq(this)"
+            style="width:100%; text-align:left; padding:18px 20px; background:var(--white);
+                   border:none; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text);
+                   display:flex; justify-content:space-between; align-items:center;">
+            How do I book an appointment?
+            <span>＋</span>
+          </button>
+          <div class="faq-body" style="display:none; padding:0 20px 18px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+            You can book an appointment online via our <a href="appointment.html" style="color:var(--primary);">Book Appointment</a> page, or call us at +91-11-2345-6789 during working hours.
+          </div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden;">
+          <button onclick="toggleFaq(this)"
+            style="width:100%; text-align:left; padding:18px 20px; background:var(--white);
+                   border:none; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text);
+                   display:flex; justify-content:space-between; align-items:center;">
+            Is there a discount for senior citizens?
+            <span>＋</span>
+          </button>
+          <div class="faq-body" style="display:none; padding:0 20px 18px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+            Yes! Patients aged 60 and above receive a 10% discount on all consultation fees automatically.
+          </div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden;">
+          <button onclick="toggleFaq(this)"
+            style="width:100%; text-align:left; padding:18px 20px; background:var(--white);
+                   border:none; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text);
+                   display:flex; justify-content:space-between; align-items:center;">
+            What are the OPD timings?
+            <span>＋</span>
+          </button>
+          <div class="faq-body" style="display:none; padding:0 20px 18px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+            OPD runs in two shifts: Morning (8 AM – 12 PM) and Evening (2 PM – 6 PM), Monday to Saturday. Individual doctor schedules may vary.
+          </div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden;">
+          <button onclick="toggleFaq(this)"
+            style="width:100%; text-align:left; padding:18px 20px; background:var(--white);
+                   border:none; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text);
+                   display:flex; justify-content:space-between; align-items:center;">
+            Do you have emergency services?
+            <span>＋</span>
+          </button>
+          <div class="faq-body" style="display:none; padding:0 20px 18px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+            Yes, our emergency department is open 24/7. Call +91-11-2345-9999 for immediate assistance or dial 102 for ambulance services.
+          </div>
+        </div>
+
+        <div class="faq-item" style="border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+          <button onclick="toggleFaq(this)"
+            style="width:100%; text-align:left; padding:18px 20px; background:var(--white);
+                   border:none; font-size:0.95rem; font-weight:600; cursor:pointer; color:var(--text);
+                   display:flex; justify-content:space-between; align-items:center;">
+            How many beds does the hospital have?
+            <span>＋</span>
+          </button>
+          <div class="faq-body" style="display:none; padding:0 20px 18px; color:var(--text-muted); font-size:0.9rem; line-height:1.7;">
+            MAX Hospital has 100 beds including general wards, private rooms, and ICU facilities. Beds are automatically assigned upon appointment booking.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">🏥 MAX<span style="color:#7ee8fa;">Hospital</span></div>
+        <p>Providing world-class healthcare to the people of New Delhi since 2005. Your health, our mission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Departments</h4>
+        <ul>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Neurology</a></li>
+          <li><a href="#">Orthopedics</a></li>
+          <li><a href="#">Pediatrics</a></li>
+          <li><a href="#">Gynecology</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 New Delhi, India</a></li>
+          <li><a href="#">📞 +91-11-2345-6789</a></li>
+          <li><a href="#">✉️ info@maxhospital.in</a></li>
+          <li><a href="#">🕐 24/7 Emergency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MAX Hospital, New Delhi. All rights reserved.</span>
+      <span>Built with ❤️ for better healthcare</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function sendMessage(e) {
+      e.preventDefault();
+      document.getElementById('contactSuccess').style.display = 'block';
+      document.getElementById('contactForm').reset();
+    }
+
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('span');
+      const isOpen = body.style.display === 'block';
+      body.style.display = isOpen ? 'none' : 'block';
+      icon.textContent = isOpen ? '＋' : '－';
+    }
+  </script>
+</body>
+</html>

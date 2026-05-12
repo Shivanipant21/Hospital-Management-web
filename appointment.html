@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment – MAX Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🏥</span>
+        MAX<span>Hospital</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointment.html" class="nav-cta active">Book Appointment</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>📅 Book an Appointment</h1>
+    <p>Fill in the form below and we'll confirm your slot within minutes.</p>
+  </div>
+
+  <!-- APPOINTMENT FORM -->
+  <section class="appointment-section">
+    <div class="container">
+      <div class="appointment-wrapper">
+        <div class="appt-header">
+          <h2>Patient Appointment Form</h2>
+          <p>All fields marked with * are required. Senior citizens (60+) receive a 10% discount.</p>
+        </div>
+        <form class="appt-form" id="apptForm" onsubmit="submitForm(event)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pname">Full Name *</label>
+              <input type="text" id="pname" placeholder="e.g. Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label for="page">Age *</label>
+              <input type="number" id="page" placeholder="e.g. 35" min="1" max="120" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pgender">Gender *</label>
+              <select id="pgender" required>
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pphone">Phone Number *</label>
+              <input type="tel" id="pphone" placeholder="e.g. 9876543210" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="pdisease">Disease / Symptoms *</label>
+              <input type="text" id="pdisease" placeholder="e.g. Fever, Chest Pain, Joint Pain..." required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pdoctor">Select Doctor *</label>
+              <select id="pdoctor" required onchange="updateFee()">
+                <option value="">Choose a doctor</option>
+                <option value="500">Dr. Shankar – General Physician (₹500)</option>
+                <option value="600">Dr. Riya Singh – Orthopedic Surgeon (₹600)</option>
+                <option value="700">Dr. M. Pundir – Dental Surgeon (₹700)</option>
+                <option value="650">Dr. R. Yadav – Ayurvedic & Unani (₹650)</option>
+                <option value="550">Dr. Isha Mittal – Gynecologist (₹550)</option>
+                <option value="700">Dr. P. Raturi – Dermatologist (₹700)</option>
+                <option value="800">Dr. A. Sharma – Cardiologist (₹800)</option>
+                <option value="750">Dr. S. Kapoor – Neurologist (₹750)</option>
+                <option value="700">Dr. V. Mehta – Pulmonologist (₹700)</option>
+                <option value="750">Dr. N. Gupta – Gastroenterologist (₹750)</option>
+                <option value="500">Dr. K. Verma – Pediatrician (₹500)</option>
+                <option value="650">Dr. P. Joshi – Ophthalmologist (₹650)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pshift">Shift *</label>
+              <select id="pshift" required>
+                <option value="">Select shift</option>
+                <option value="morning">Morning (8 AM – 12 PM)</option>
+                <option value="evening">Evening (2 PM – 6 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pdate">Preferred Date *</label>
+              <input type="date" id="pdate" required />
+            </div>
+            <div class="form-group">
+              <label>Consultation Fee</label>
+              <input type="text" id="pfee" value="Select a doctor first" readonly
+                style="background: var(--light-bg); color: var(--primary); font-weight:700;" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="pnotes">Additional Notes</label>
+              <textarea id="pnotes" placeholder="Any allergies, previous conditions, or special requests..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-solid">✅ Confirm Appointment</button>
+          </div>
+
+          <div class="success-msg" id="successMsg">
+            🎉 Appointment booked successfully! We'll contact you shortly to confirm your slot.
+          </div>
+        </form>
+      </div>
+
+      <!-- INFO CARDS -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; margin-top:40px;">
+        <div class="service-card">
+          <div class="service-icon">⏰</div>
+          <h3>Quick Confirmation</h3>
+          <p>Appointments are confirmed within 30 minutes during working hours.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👴</div>
+          <h3>Senior Discount</h3>
+          <p>Patients aged 60 and above receive a 10% discount on consultation fees.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛏️</div>
+          <h3>Bed Allotment</h3>
+          <p>Beds are automatically assigned upon booking. 100 beds available.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📞</div>
+          <h3>Emergency Line</h3>
+          <p>For emergencies call +91-11-2345-6789. Available 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">🏥 MAX<span style="color:#7ee8fa;">Hospital</span></div>
+        <p>Providing world-class healthcare to the people of New Delhi since 2005. Your health, our mission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Departments</h4>
+        <ul>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Neurology</a></li>
+          <li><a href="#">Orthopedics</a></li>
+          <li><a href="#">Pediatrics</a></li>
+          <li><a href="#">Gynecology</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 New Delhi, India</a></li>
+          <li><a href="#">📞 +91-11-2345-6789</a></li>
+          <li><a href="#">✉️ info@maxhospital.in</a></li>
+          <li><a href="#">🕐 24/7 Emergency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MAX Hospital, New Delhi. All rights reserved.</span>
+      <span>Built with ❤️ for better healthcare</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Set min date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('pdate').setAttribute('min', today);
+
+    function updateFee() {
+      const sel = document.getElementById('pdoctor');
+      const fee = sel.value;
+      const age = parseInt(document.getElementById('page').value) || 0;
+      if (fee) {
+        const base = parseInt(fee);
+        const discount = age >= 60 ? base * 0.10 : 0;
+        const final = base - discount;
+        let text = `₹${base}`;
+        if (discount > 0) text += ` − ₹${discount.toFixed(0)} (senior discount) = ₹${final.toFixed(0)}`;
+        document.getElementById('pfee').value = text;
+      } else {
+        document.getElementById('pfee').value = 'Select a doctor first';
+      }
+    }
+
+    // Recalculate fee when age changes
+    document.getElementById('page').addEventListener('input', updateFee);
+
+    function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('apptForm');
+      const msg = document.getElementById('successMsg');
+
+      // Save to localStorage
+      const record = {
+        id: Math.floor(Math.random() * 90000) + 10000,
+        name: document.getElementById('pname').value,
+        age: document.getElementById('page').value,
+        gender: document.getElementById('pgender').value,
+        phone: document.getElementById('pphone').value,
+        disease: document.getElementById('pdisease').value,
+        doctor: document.getElementById('pdoctor').selectedOptions[0].text,
+        shift: document.getElementById('pshift').value,
+        date: document.getElementById('pdate').value,
+        fee: document.getElementById('pfee').value,
+        notes: document.getElementById('pnotes').value,
+        bookedAt: new Date().toLocaleString()
+      };
+
+      const records = JSON.parse(localStorage.getItem('maxHospitalRecords') || '[]');
+      records.push(record);
+      localStorage.setItem('maxHospitalRecords', JSON.stringify(records));
+
+      msg.style.display = 'block';
+      form.reset();
+      document.getElementById('pfee').value = 'Select a doctor first';
+      msg.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

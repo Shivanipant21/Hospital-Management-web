@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAX Hospital – New Delhi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🏥</span>
+        MAX<span>Hospital</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointment.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🏆 Trusted Healthcare Since 2005</div>
+      <h1>Your Health Is Our <span>Top Priority</span></h1>
+      <p>World-class medical care with compassion. 12 specialist doctors, 100 beds, and round-the-clock emergency services — all under one roof.</p>
+      <div class="hero-buttons">
+        <a href="appointment.html" class="btn btn-primary">📅 Book Appointment</a>
+        <a href="doctors.html" class="btn btn-outline">👨‍⚕️ Meet Our Doctors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>12+</h3>
+        <p>Specialist Doctors</p>
+      </div>
+      <div class="stat-item">
+        <h3>100</h3>
+        <p>Hospital Beds</p>
+      </div>
+      <div class="stat-item">
+        <h3>20K+</h3>
+        <p>Patients Treated</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Emergency Care</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section style="background: var(--light-bg);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2>Our Medical Services</h2>
+        <p>Comprehensive healthcare services delivered by experienced specialists.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">❤️</div>
+          <h3>Cardiology</h3>
+          <p>Heart disease diagnosis, ECG, and cardiac care by expert cardiologists.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🦴</div>
+          <h3>Orthopedics</h3>
+          <p>Bone fractures, joint replacement, and spine disorder treatment.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧠</div>
+          <h3>Neurology</h3>
+          <p>Migraine, epilepsy, stroke, and neurological disorder management.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🦷</div>
+          <h3>Dentistry</h3>
+          <p>Complete dental care including root canal, braces, and oral surgery.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3>Pediatrics</h3>
+          <p>Specialized child healthcare from newborns to adolescents.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌸</div>
+          <h3>Gynecology</h3>
+          <p>Women's health, maternity care, and reproductive medicine.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🫁</div>
+          <h3>Pulmonology</h3>
+          <p>Asthma, COPD, tuberculosis, and respiratory disease treatment.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Dermatology</h3>
+          <p>Skin, hair, and nail disorders treated with advanced techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED DOCTORS -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Team</span>
+        <h2>Meet Our Specialists</h2>
+        <p>Highly qualified doctors dedicated to your well-being.</p>
+      </div>
+      <div class="doctors-grid">
+        <div class="doctor-card">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. Shankar</h3>
+            <div class="doctor-deg">MBBS – MD (General Physician)</div>
+            <div class="doctor-treats">Fever, Cold, Flu, Typhoid, Diabetes, Hypertension</div>
+            <span class="doctor-fee">₹500 / visit</span>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. A. Sharma</h3>
+            <div class="doctor-deg">MBBS – MD (Cardiologist)</div>
+            <div class="doctor-treats">Heart Attack, Chest Pain, Arrhythmia, Heart Failure</div>
+            <span class="doctor-fee">₹800 / visit</span>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. S. Kapoor</h3>
+            <div class="doctor-deg">MBBS – MS (Neurologist)</div>
+            <div class="doctor-treats">Migraine, Epilepsy, Stroke, Parkinson's, Alzheimer's</div>
+            <span class="doctor-fee">₹750 / visit</span>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. Isha Mittal</h3>
+            <div class="doctor-deg">MBBS – Gynecologist</div>
+            <div class="doctor-treats">PCOS, Pregnancy, Menstrual Disorders, Infertility</div>
+            <span class="doctor-fee">₹550 / visit</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="doctors.html" class="btn btn-solid">View All 12 Doctors →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; text-align:center; padding: 60px 24px;">
+    <h2 style="font-size:2rem; font-weight:800; margin-bottom:12px;">Need a Doctor? Book in 60 Seconds.</h2>
+    <p style="opacity:0.88; margin-bottom:28px; font-size:1.05rem;">Choose your specialist, pick a time slot, and get confirmed instantly.</p>
+    <a href="appointment.html" class="btn btn-primary">📅 Book Appointment Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">🏥 MAX<span style="color:#7ee8fa;">Hospital</span></div>
+        <p>Providing world-class healthcare to the people of New Delhi since 2005. Your health, our mission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Departments</h4>
+        <ul>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Neurology</a></li>
+          <li><a href="#">Orthopedics</a></li>
+          <li><a href="#">Pediatrics</a></li>
+          <li><a href="#">Gynecology</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 New Delhi, India</a></li>
+          <li><a href="#">📞 +91-11-2345-6789</a></li>
+          <li><a href="#">✉️ info@maxhospital.in</a></li>
+          <li><a href="#">🕐 24/7 Emergency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MAX Hospital, New Delhi. All rights reserved.</span>
+      <span>Built with ❤️ for better healthcare</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

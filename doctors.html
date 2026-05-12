@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Doctors – MAX Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      background: var(--white);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+    .doctor-card .book-btn {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      padding: 10px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+    .doctor-card .book-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🏥</span>
+        MAX<span>Hospital</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="doctors.html" class="active">Doctors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointment.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>👨‍⚕️ Our Medical Team</h1>
+    <p>12 specialist doctors across 10 departments — experienced, qualified, and dedicated to your health.</p>
+  </div>
+
+  <!-- DOCTORS -->
+  <section>
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterDocs('all', this)">All Doctors</button>
+        <button class="filter-btn" onclick="filterDocs('general', this)">General</button>
+        <button class="filter-btn" onclick="filterDocs('cardio', this)">Cardiology</button>
+        <button class="filter-btn" onclick="filterDocs('neuro', this)">Neurology</button>
+        <button class="filter-btn" onclick="filterDocs('ortho', this)">Orthopedics</button>
+        <button class="filter-btn" onclick="filterDocs('dental', this)">Dental</button>
+        <button class="filter-btn" onclick="filterDocs('gyno', this)">Gynecology</button>
+        <button class="filter-btn" onclick="filterDocs('skin', this)">Dermatology</button>
+        <button class="filter-btn" onclick="filterDocs('child', this)">Pediatrics</button>
+        <button class="filter-btn" onclick="filterDocs('eye', this)">Ophthalmology</button>
+      </div>
+
+      <div class="doctors-grid" id="doctorsGrid">
+
+        <!-- Doctor 1 -->
+        <div class="doctor-card" data-dept="general">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. Shankar</h3>
+            <div class="doctor-deg">MBBS – MD (General Physician)</div>
+            <div class="doctor-treats">🩺 Fever, Cold, Flu, Typhoid, Diabetes, Hypertension</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Sunday off</div>
+            <span class="doctor-fee">₹500 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="doctor-card" data-dept="ortho">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. Riya Singh</h3>
+            <div class="doctor-deg">MBBS – MS (Orthopedic Surgeon)</div>
+            <div class="doctor-treats">🦴 Bone Fracture, Joint Pain, Arthritis, Spine Disorders</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Saturday off</div>
+            <span class="doctor-fee">₹600 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div class="doctor-card" data-dept="dental">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. M. Pundir</h3>
+            <div class="doctor-deg">BDS – MDS (Dental Surgeon)</div>
+            <div class="doctor-treats">🦷 Tooth Decay, Gum Disease, Oral Infection, Tooth Extraction</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Sunday off</div>
+            <span class="doctor-fee">₹700 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 4 -->
+        <div class="doctor-card" data-dept="general">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. R. Yadav</h3>
+            <div class="doctor-deg">BAMS – BUMS (Ayurvedic & Unani)</div>
+            <div class="doctor-treats">🌿 Digestive Disorders, Chronic Pain, Asthma, Kidney Stones</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Friday off</div>
+            <span class="doctor-fee">₹650 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 5 -->
+        <div class="doctor-card" data-dept="gyno">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. Isha Mittal</h3>
+            <div class="doctor-deg">MBBS – Gynecologist</div>
+            <div class="doctor-treats">🌸 PCOS, Pregnancy, Menstrual Disorders, Infertility</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Monday off</div>
+            <span class="doctor-fee">₹550 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 6 -->
+        <div class="doctor-card" data-dept="skin">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. P. Raturi</h3>
+            <div class="doctor-deg">MBBS – MD (Dermatologist)</div>
+            <div class="doctor-treats">🔬 Acne, Eczema, Psoriasis, Skin Allergy, Hair Loss</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Sunday off</div>
+            <span class="doctor-fee">₹700 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 7 -->
+        <div class="doctor-card" data-dept="cardio">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. A. Sharma</h3>
+            <div class="doctor-deg">MBBS – MD (Cardiologist)</div>
+            <div class="doctor-treats">❤️ Heart Attack, Chest Pain, Arrhythmia, Heart Failure</div>
+            <div class="doctor-shift">🕐 9 AM–1 PM &nbsp;|&nbsp; 3 PM–7 PM &nbsp;|&nbsp; Tuesday off</div>
+            <span class="doctor-fee">₹800 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 8 -->
+        <div class="doctor-card" data-dept="neuro">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. S. Kapoor</h3>
+            <div class="doctor-deg">MBBS – MS (Neurologist)</div>
+            <div class="doctor-treats">🧠 Migraine, Epilepsy, Stroke, Parkinson's, Alzheimer's</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Wednesday off</div>
+            <span class="doctor-fee">₹750 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 9 -->
+        <div class="doctor-card" data-dept="general">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. V. Mehta</h3>
+            <div class="doctor-deg">MBBS – MD (Pulmonologist)</div>
+            <div class="doctor-treats">🫁 Asthma, Bronchitis, Pneumonia, Tuberculosis, COPD</div>
+            <div class="doctor-shift">🕐 10 AM–2 PM &nbsp;|&nbsp; 4 PM–8 PM &nbsp;|&nbsp; Thursday off</div>
+            <span class="doctor-fee">₹700 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 10 -->
+        <div class="doctor-card" data-dept="general">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. N. Gupta</h3>
+            <div class="doctor-deg">MBBS – MS (Gastroenterologist)</div>
+            <div class="doctor-treats">🔬 Ulcer, IBS, Liver Disease, Jaundice, Acid Reflux</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Saturday off</div>
+            <span class="doctor-fee">₹750 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 11 -->
+        <div class="doctor-card" data-dept="child">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. K. Verma</h3>
+            <div class="doctor-deg">MBBS – MD (Pediatrician)</div>
+            <div class="doctor-treats">👶 Child Fever, Malnutrition, Chickenpox, Measles, Mumps</div>
+            <div class="doctor-shift">🕐 9 AM–1 PM &nbsp;|&nbsp; 3 PM–7 PM &nbsp;|&nbsp; Sunday off</div>
+            <span class="doctor-fee">₹500 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+        <!-- Doctor 12 -->
+        <div class="doctor-card" data-dept="eye">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <div class="doctor-info">
+            <h3>Dr. P. Joshi</h3>
+            <div class="doctor-deg">MBBS – MS (Ophthalmologist)</div>
+            <div class="doctor-treats">👁️ Cataract, Glaucoma, Conjunctivitis, Myopia, Retinal Issues</div>
+            <div class="doctor-shift">🕐 8 AM–12 PM &nbsp;|&nbsp; 2 PM–6 PM &nbsp;|&nbsp; Monday off</div>
+            <span class="doctor-fee">₹650 / visit</span>
+            <a href="appointment.html" class="book-btn">📅 Book Appointment</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">🏥 MAX<span style="color:#7ee8fa;">Hospital</span></div>
+        <p>Providing world-class healthcare to the people of New Delhi since 2005. Your health, our mission.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Departments</h4>
+        <ul>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Neurology</a></li>
+          <li><a href="#">Orthopedics</a></li>
+          <li><a href="#">Pediatrics</a></li>
+          <li><a href="#">Gynecology</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 New Delhi, India</a></li>
+          <li><a href="#">📞 +91-11-2345-6789</a></li>
+          <li><a href="#">✉️ info@maxhospital.in</a></li>
+          <li><a href="#">🕐 24/7 Emergency</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MAX Hospital, New Delhi. All rights reserved.</span>
+      <span>Built with ❤️ for better healthcare</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function filterDocs(dept, btn) {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Show/hide cards
+      document.querySelectorAll('.doctor-card').forEach(card => {
+        if (dept === 'all' || card.dataset.dept === dept) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

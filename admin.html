@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login – MAX Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🏥</span>
+        MAX<span>Hospital</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="appointment.html" class="nav-cta">Book Appointment</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="lock-icon">🔐</div>
+        <h2>Admin Login</h2>
+        <p>Authorized personnel only. Max 3 attempts.</p>
+      </div>
+      <div class="login-form">
+        <div class="login-error" id="loginError">
+          ❌ Invalid username or password. Please try again.
+        </div>
+
+        <form id="loginForm" onsubmit="doLogin(event)">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" required autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" required />
+          </div>
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:16px;">
+            💡 Hint: Username = <strong>AdminJi</strong> &nbsp;|&nbsp; Password = <strong>1234@</strong>
+          </div>
+          <button type="submit" class="btn btn-solid">🔓 Login to Dashboard</button>
+        </form>
+
+        <div style="text-align:center; margin-top:20px;">
+          <a href="index.html" style="font-size:0.88rem; color:var(--text-muted);">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:14px;">🏥 MAX<span style="color:#7ee8fa;">Hospital</span></div>
+        <p>Providing world-class healthcare to the people of New Delhi since 2005.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Admin</h4>
+        <ul>
+          <li><a href="admin.html">Admin Login</a></li>
+          <li><a href="records.html">Patient Records</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 New Delhi, India</a></li>
+          <li><a href="#">📞 +91-11-2345-6789</a></li>
+          <li><a href="#">✉️ info@maxhospital.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MAX Hospital, New Delhi. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    let attempts = 0;
+
+    function doLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const errEl = document.getElementById('loginError');
+
+      if (user === 'AdminJi' && pass === '1234@') {
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        window.location.href = 'records.html';
+      } else {
+        attempts++;
+        errEl.style.display = 'block';
+        if (attempts >= 3) {
+          errEl.textContent = '🚫 Too many failed attempts. Access denied.';
+          document.querySelector('button[type=submit]').disabled = true;
+          document.getElementById('username').disabled = true;
+          document.getElementById('password').disabled = true;
+        } else {
+          errEl.textContent = `❌ Invalid credentials. ${3 - attempts} attempt(s) remaining.`;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
